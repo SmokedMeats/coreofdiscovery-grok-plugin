@@ -9,14 +9,9 @@ This repository is the plugin mouth: skills, commands, MCP client config, and a 
 
 ## What you provide
 
-Your own CoreOfDiscovery API key. The plugin already knows the server URL.
+Sign in when Grok opens the browser (Clerk OAuth). The plugin already knows the server URL.
 
-1. Sign in at [coreofdiscovery.vercel.app](https://coreofdiscovery.vercel.app).
-2. Open [Settings → API keys](https://coreofdiscovery.vercel.app/settings/api-keys).
-3. Create a key with `mcp:tools`, `decisions:write`, and `calibration:read`.
-4. Copy the `cod_...` secret once.
-
-Do not put a key in git. Do not share one key across people.
+A personal API key is only the fallback if Connect does not start.
 
 ## Grok Build
 
@@ -24,13 +19,9 @@ Do not put a key in git. Do not share one key across people.
 grok plugin install coreofdiscovery --trust
 ```
 
-Or clone this repo and install the folder. Set one environment variable:
+Reload plugins, then `/log-claim`. The first tool call should open CoreOfDiscovery sign-in.
 
-```sh
-export COREOFDISCOVERY_API_KEY=cod_...
-```
-
-The bundled `.mcp.json` already points at production. Reload plugins, then `/log-claim`.
+If OAuth does not start, create a key at [Settings → API keys](https://coreofdiscovery.vercel.app/settings/api-keys) and set `COREOFDISCOVERY_API_KEY`.
 
 ```sh
 grok plugin details coreofdiscovery
@@ -41,13 +32,13 @@ grok plugin details coreofdiscovery
 Settings → Plugins → add a custom MCP server (or ask the Bot to add one).
 
 - URL: `https://coreofdiscovery.vercel.app/api/mcp`
-- Header: `x-api-key` = your key
+- Complete Clerk sign-in if Grok shows Connect. Otherwise header `x-api-key`.
 
 In chat, type `@` and attach the connector.
 
 ## Grok chat connectors
 
-[grok.com/connectors](https://grok.com/connectors) → New → Custom → same URL and `x-api-key`. xAI’s form still asks for the URL; paste the production address above.
+[grok.com/connectors](https://grok.com/connectors) → New → Custom → same URL. Complete OAuth if offered. xAI’s form still asks for the URL; paste the production address above.
 
 ## Network and credentials
 
@@ -56,7 +47,7 @@ In chat, type `@` and attach the connector.
 | `https://coreofdiscovery.vercel.app/api/mcp` | JSON-RPC tools (`log_claim`, `recall_lessons`, `record_lesson`, `resolve_decision`, `calibration_report`, `list_open_claims`) |
 | `https://coreofdiscovery.vercel.app/settings/api-keys` | Human creates their key |
 
-Header `x-api-key` is the caller’s CoreOfDiscovery secret. This plugin never ships a shared key.
+OAuth uses Clerk in the browser. `x-api-key` is the fallback secret. This plugin never ships a shared key.
 
 ## Skills and commands
 

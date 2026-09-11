@@ -99,21 +99,19 @@
       <h1>CoreOfDiscovery for Grok</h1>
       <p class="lede">
         Record a prediction, grade it later against the original request, and see how calibrated you have been.
-        The plugin already points at production. You only add your API key.
+        The plugin already points at production. Sign in when Grok opens Connect.
       </p>
 
-      <h2>1. Create your key</h2>
+      <h2>1. Sign in</h2>
       <ol>
+        <li>Install the plugin or add the MCP URL below.</li>
+        <li>Call a tool. Grok should open CoreOfDiscovery (Clerk) — sign in and Allow.</li>
         <li>
-          Sign in at
-          <a href="https://coreofdiscovery.vercel.app">coreofdiscovery.vercel.app</a>
-        </li>
-        <li>
-          Open
+          If Connect does not start, create a key at
           <a href="https://coreofdiscovery.vercel.app/settings/api-keys">Settings → API keys</a>
+          (<code>mcp:tools</code>, <code>decisions:write</code>, <code>calibration:read</code>) and set
+          <code>x-api-key</code>.
         </li>
-        <li>Create a key. Check <code>mcp:tools</code>, <code>decisions:write</code>, and <code>calibration:read</code>.</li>
-        <li>Copy the <code>cod_...</code> secret once. It is yours, not a shared plugin key.</li>
       </ol>
 
       <h2>2. Server</h2>
@@ -121,21 +119,20 @@
       <div class="card">
         <pre>https://coreofdiscovery.vercel.app/api/mcp</pre>
       </div>
-      <p style="margin-top: 0.75rem">Header <code>x-api-key</code> = the secret from step 1.</p>
+      <p style="margin-top: 0.75rem">OAuth first. Header <code>x-api-key</code> only if Connect never opens.</p>
 
       <h2>3. Install</h2>
       <p><strong style="color: var(--fg)">Grok Build</strong></p>
       <div class="card">
-        <pre>grok plugin install coreofdiscovery --trust
-export COREOFDISCOVERY_API_KEY=cod_...</pre>
+        <pre>grok plugin install coreofdiscovery --trust</pre>
       </div>
       <p>
-        <strong style="color: var(--fg)">Grok Bot</strong> — Settings → Plugins → custom MCP → URL and
-        <code>x-api-key</code> above. In chat, type <code>@</code> and attach the connector.
+        <strong style="color: var(--fg)">Grok Bot</strong> — Settings → Plugins → custom MCP → URL
+        above. Complete Connect if prompted. In chat, type <code>@</code> and attach the connector.
       </p>
       <p>
         <strong style="color: var(--fg)">Grok chat</strong> —
-        <a href="https://grok.com/connectors">grok.com/connectors</a> → New → Custom → same URL and header.
+        <a href="https://grok.com/connectors">grok.com/connectors</a> → New → Custom → same URL.
       </p>
 
       <h2>Then</h2>
