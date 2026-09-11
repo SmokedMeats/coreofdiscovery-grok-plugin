@@ -8,7 +8,9 @@ This repository contains plugin skills, commands, MCP client configuration, and 
 
 ## Install
 
-See the [install page](./index.html) after deploy, or:
+Live install page: [https://coreofdiscovery-grok-plugin.vercel.app](https://coreofdiscovery-grok-plugin.vercel.app)
+
+Or:
 
 1. Mint a CoreOfDiscovery API key.
 2. Set `COREOFDISCOVERY_MCP_URL` and `COREOFDISCOVERY_API_KEY`.
