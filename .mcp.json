@@ -2,7 +2,7 @@
   "mcpServers": {
     "coreofdiscovery": {
       "type": "http",
-      "url": "${COREOFDISCOVERY_MCP_URL}",
+      "url": "https://coreofdiscovery.vercel.app/api/mcp",
       "headers": {
         "x-api-key": "${COREOFDISCOVERY_API_KEY}"
       }

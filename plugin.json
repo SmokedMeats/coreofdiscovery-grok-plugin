@@ -1,11 +1,15 @@
 {
   "name": "coreofdiscovery",
   "description": "Record predictions with CoreOfDiscovery, score them against the original request, and report calibration.",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "license": "MIT",
   "author": {
     "name": "SmokedMeats"
   },
-  "homepage": "https://github.com/SmokedMeats/coreofdiscovery-grok-plugin",
-  "keywords": ["calibration", "decisions", "mcp", "brier", "grok-bot"],
-  "category": "productivity"
+  "homepage": "https://coreofdiscovery-grok-plugin.vercel.app",
+  "repository": "https://github.com/SmokedMeats/coreofdiscovery-grok-plugin",
+  "keywords": ["coreofdiscovery", "calibration", "brier", "log-claim"],
+  "domains": ["coreofdiscovery.vercel.app"],
+  "category": "productivity",
+  "tags": ["mcp", "calibration"]
 }

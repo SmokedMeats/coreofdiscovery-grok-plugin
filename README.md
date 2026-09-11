@@ -1,33 +1,75 @@
 # CoreOfDiscovery Grok plugin
 
-A Grok plugin for [CoreOfDiscovery](https://github.com/SmokedMeats/CoreofDiscovery). Compatible with Grok Bot, Grok chat connectors, and Grok Build.
+Installable Grok plugin for [CoreOfDiscovery](https://github.com/SmokedMeats/CoreofDiscovery). Works with Grok Build, Grok Bot, and [Grok chat connectors](https://grok.com/connectors).
 
-Agents record predictions, score them later against the original request, and report calibration to the user.
+This repository is the plugin mouth: skills, commands, MCP client config, and a static install page. It has no database. Claims, grades, and lessons stay on the CoreOfDiscovery MCP server.
 
-This repository contains plugin skills, commands, MCP client configuration, and a static install page. It has no database. Decision records, snapshots, and Brier scores remain on the CoreOfDiscovery MCP server.
+**MCP server:** `https://coreofdiscovery.vercel.app/api/mcp`  
+**Install page:** [coreofdiscovery-grok-plugin.vercel.app](https://coreofdiscovery-grok-plugin.vercel.app)
 
-## Install
+## What you provide
 
-Live install page: [https://coreofdiscovery-grok-plugin.vercel.app](https://coreofdiscovery-grok-plugin.vercel.app)
+Your own CoreOfDiscovery API key. The plugin already knows the server URL.
 
-Or:
+1. Sign in at [coreofdiscovery.vercel.app](https://coreofdiscovery.vercel.app).
+2. Open [Settings → API keys](https://coreofdiscovery.vercel.app/settings/api-keys).
+3. Create a key with `mcp:tools`, `decisions:write`, and `calibration:read`.
+4. Copy the `cod_...` secret once.
 
-1. Mint a CoreOfDiscovery API key.
-2. Set `COREOFDISCOVERY_MCP_URL` and `COREOFDISCOVERY_API_KEY`.
-3. Grok Bot: Settings → Plugins → custom MCP → `{APP}/api/mcp` with `x-api-key`.
-4. Grok chat: [connectors](https://grok.com/connectors) → Custom.
-5. Grok Build: install this folder as a plugin.
+Do not put a key in git. Do not share one key across people.
 
-## Rules the skills enforce
+## Grok Build
 
-- Quote the original request. Do not overwrite it on grade.
-- `graderKind=self` never gets full calibration weight.
-- The user report is ask / I said / happened / who graded.
-- Log a date, probability, or recommendation you cannot look up now. No command required.
-- Call `recall_lessons` before `log_claim`. Call `record_lesson` after a grade.
-- Do not write lessons into a user's `AGENTS.md`. Books stay on CoreOfDiscovery.
+```sh
+grok plugin install coreofdiscovery --trust
+```
 
-## Tracker
+Or clone this repo and install the folder. Set one environment variable:
 
-- Map: [#1](https://github.com/SmokedMeats/coreofdiscovery-grok-plugin/issues/1)
-- Kanban: [Bot claim calibration](https://github.com/users/SmokedMeats/projects/5)
+```sh
+export COREOFDISCOVERY_API_KEY=cod_...
+```
+
+The bundled `.mcp.json` already points at production. Reload plugins, then `/log-claim`.
+
+```sh
+grok plugin details coreofdiscovery
+```
+
+## Grok Bot
+
+Settings → Plugins → add a custom MCP server (or ask the Bot to add one).
+
+- URL: `https://coreofdiscovery.vercel.app/api/mcp`
+- Header: `x-api-key` = your key
+
+In chat, type `@` and attach the connector.
+
+## Grok chat connectors
+
+[grok.com/connectors](https://grok.com/connectors) → New → Custom → same URL and `x-api-key`. xAI’s form still asks for the URL; paste the production address above.
+
+## Network and credentials
+
+| Endpoint | Why |
+| --- | --- |
+| `https://coreofdiscovery.vercel.app/api/mcp` | JSON-RPC tools (`log_claim`, `recall_lessons`, `record_lesson`, `resolve_decision`, `calibration_report`, `list_open_claims`) |
+| `https://coreofdiscovery.vercel.app/settings/api-keys` | Human creates their key |
+
+Header `x-api-key` is the caller’s CoreOfDiscovery secret. This plugin never ships a shared key.
+
+## Skills and commands
+
+| Skill / command | When |
+| --- | --- |
+| `connect` / `/connect` | First run, or MCP unauthorized |
+| `log-claim` / `/log-claim` | Before a date, probability, or recommendation you cannot look up now |
+| `learn-from-outcomes` | Recall before log; record after grade |
+| `self-grade` / `/grade-claim` | Grade the frozen ask |
+| `report-to-user` / `/how-did-i-do` | Speak calibration |
+
+Rules: quote the original request. Self-grade is down-weighted. Do not write lessons into a user’s `AGENTS.md`.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

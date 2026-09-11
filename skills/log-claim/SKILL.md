@@ -30,4 +30,4 @@ Lookups, tastes, and already-frozen asks stay spoken only.
    - `nominatedBy` — `user` if they asked to track it, else `bot`
    - `botId` — stable id, e.g. `grok-4`
    Done when the freeze returns.
-4. Read the freeze back, then speak the claim. Books are CoreOfDiscovery MCP.
+4. Read the freeze back, then speak the claim. Books are CoreOfDiscovery MCP at `https://coreofdiscovery.vercel.app/api/mcp`. If the call is unauthorized, follow `connect`.
