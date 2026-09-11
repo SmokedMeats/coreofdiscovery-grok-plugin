@@ -1,0 +1,11 @@
+{
+  "name": "coreofdiscovery",
+  "description": "Dump claims, grade them against the frozen original ask, and report calibration to the user.",
+  "version": "0.1.0",
+  "author": {
+    "name": "SmokedMeats"
+  },
+  "homepage": "https://github.com/SmokedMeats/coreofdiscovery-grok-plugin",
+  "keywords": ["calibration", "decisions", "mcp", "brier", "grok-bot"],
+  "category": "productivity"
+}

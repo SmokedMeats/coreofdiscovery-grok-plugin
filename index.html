@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CoreOfDiscovery Grok plugin</title>
+    <style>
+      body {
+        font-family: Georgia, "Times New Roman", serif;
+        max-width: 42rem;
+        margin: 2rem auto;
+        padding: 0 1.25rem;
+        line-height: 1.5;
+        color: #111;
+      }
+      code,
+      pre {
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.9rem;
+      }
+      pre {
+        background: #f4f4f1;
+        padding: 0.75rem 1rem;
+        overflow: auto;
+      }
+      a {
+        color: #0b3d2e;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CoreOfDiscovery for Grok Bot</h1>
+    <p>
+      This package is the mouth. The books live on
+      <a href="https://github.com/SmokedMeats/CoreofDiscovery">CoreOfDiscovery</a>
+      MCP. Bots dump claims, later grade them against the frozen original ask, then
+      report calibration to the user.
+    </p>
+    <p>No database here. Static docs only. Neon stays on CoreOfDiscovery and already scales to zero.</p>
+
+    <h2>1. Grok Bot</h2>
+    <ol>
+      <li>Create an API key in CoreOfDiscovery → Settings → API keys.</li>
+      <li>Settings → Plugins → add a custom MCP server, or ask the Bot to add one.</li>
+      <li>URL: <code>{COREOFDISCOVERY_URL}/api/mcp</code></li>
+      <li>Header <code>x-api-key</code>.</li>
+      <li>In chat, type <code>@</code> and attach the connector.</li>
+    </ol>
+
+    <h2>2. Grok chat connectors</h2>
+    <p>
+      <a href="https://grok.com/connectors">grok.com/connectors</a> → New → Custom → same MCP URL.
+    </p>
+
+    <h2>3. Grok Build</h2>
+    <pre>grok plugin install coreofdiscovery --trust</pre>
+    <p>
+      Or clone
+      <a href="https://github.com/SmokedMeats/coreofdiscovery-grok-plugin">this repo</a>
+      and point <code>.mcp.json</code> at your app URL.
+    </p>
+
+    <h2>Tools</h2>
+    <ul>
+      <li><code>dump_claim</code> — freeze ask + claim + P + done-when</li>
+      <li><code>list_open_claims</code> — due / open</li>
+      <li><code>resolve_decision</code> — grade vs frozen ask (self-grade is down-weighted)</li>
+      <li><code>calibration_report</code> — speak D / open / overdue to the user</li>
+    </ul>
+
+    <h2>Env</h2>
+    <pre>COREOFDISCOVERY_MCP_URL=https://YOUR_APP/api/mcp
+COREOFDISCOVERY_API_KEY=cod_...</pre>
+
+    <p>
+      Map and kanban:
+      <a href="https://github.com/SmokedMeats/coreofdiscovery-grok-plugin/issues/1">issue #1</a>
+      ·
+      <a href="https://github.com/users/SmokedMeats/projects/5">project</a>
+    </p>
+  </body>
+</html>
