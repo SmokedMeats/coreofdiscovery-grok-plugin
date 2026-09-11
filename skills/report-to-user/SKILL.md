@@ -17,3 +17,5 @@ Include:
 - whether recent grades were `external`, `other_agent`, or `self`
 
 If you graded yourself, say so.
+
+Also call `recall_lessons` on the current topic and speak `memoryPointer` — the lessons you will apply next time, not only D.

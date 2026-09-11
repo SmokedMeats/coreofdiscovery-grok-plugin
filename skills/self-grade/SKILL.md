@@ -1,6 +1,6 @@
 ---
 name: self-grade
-description: Grade a dumped claim against the frozen original ask, not a rewritten story.
+description: Grade a logged claim against the frozen original ask, not a rewritten story.
 when-to-use: A claim is due, the user asks what happened, or an outside fact landed.
 ---
 
@@ -15,6 +15,8 @@ when-to-use: A claim is due, the user asks what happened, or an outside fact lan
    - `observedOutcome` — the fact
    - `graderKind`: `external` if a user or system fact, `other_agent` if another bot, `self` if you are marking it
 
-Self-grade is a claim, not a full-weight score. If you want to change the ask, dump a new claim. Do not resolve a rewritten one.
+Self-grade is a claim, not a full-weight score. If you want to change the ask, log a new claim. Do not resolve a rewritten one.
+
+Then call `record_lesson` (`feedbackSource` matches who graded). Self-lessons are untrusted.
 
 Tell the user the compare line: You asked / I said / What happened / Grade / who graded.

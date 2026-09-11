@@ -2,8 +2,8 @@
 
 Default branch **main**.
 
-This repository is the Grok plugin client only. Do not add decision math, a database, or a second MCP server.
+This repository is the Grok plugin client only. Decision math and books stay on CoreOfDiscovery MCP (`lib/mcp/bot-claim.pure.ts`).
 
-Source of truth: [SmokedMeats/CoreofDiscovery](https://github.com/SmokedMeats/CoreofDiscovery) `lib/mcp/bot-claim.pure.ts` and `/api/mcp`.
+Before you state a date, probability, or recommendation you cannot look up now, use log-claim. Lookups and tastes stay spoken only.
 
-Self-grade is always down-weighted. Grade the frozen ask only.
+log-claim runs learn-from-outcomes (recall then log; record after grade). Grade the frozen ask. Self-grade is down-weighted. Lessons stay on CoreOfDiscovery, not a user's `AGENTS.md`.

@@ -23,6 +23,9 @@ Or:
 - Quote the original request. Do not overwrite it on grade.
 - `graderKind=self` never gets full calibration weight.
 - The user report is ask / I said / happened / who graded.
+- Log a date, probability, or recommendation you cannot look up now. No command required.
+- Call `recall_lessons` before `log_claim`. Call `record_lesson` after a grade.
+- Do not write lessons into a user's `AGENTS.md`. Books stay on CoreOfDiscovery.
 
 ## Tracker
 
