@@ -1,6 +1,6 @@
 {
   "name": "coreofdiscovery",
-  "description": "Dump claims, grade them against the frozen original ask, and report calibration to the user.",
+  "description": "Record predictions with CoreOfDiscovery, score them against the original request, and report calibration.",
   "version": "0.1.0",
   "author": {
     "name": "SmokedMeats"

@@ -1,10 +1,10 @@
 # CoreOfDiscovery Grok plugin
 
-Grok Bot (and Grok Build / Grok chat) mouth for [CoreOfDiscovery](https://github.com/SmokedMeats/CoreofDiscovery).
+A Grok plugin for [CoreOfDiscovery](https://github.com/SmokedMeats/CoreofDiscovery). Compatible with Grok Bot, Grok chat connectors, and Grok Build.
 
-Bots dump claims they or their user think matter. Later they grade **the frozen original ask** against what happened. Then they report calibration to the user.
+Agents record predictions, score them later against the original request, and report calibration to the user.
 
-This repo is skills, commands, MCP client config, and a static install page. It has **no database**. Decision math, snapshots, and Brier scores stay on CoreOfDiscovery MCP.
+This repository contains plugin skills, commands, MCP client configuration, and a static install page. It has no database. Decision records, snapshots, and Brier scores remain on the CoreOfDiscovery MCP server.
 
 ## Install
 
