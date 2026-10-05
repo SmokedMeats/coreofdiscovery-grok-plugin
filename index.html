@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Install CoreOfDiscovery for Grok. The plugin already knows the MCP server. You only add your API key."
+    />
+    <title>CoreOfDiscovery for Grok</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #020617;
+        --fg: #f8fafc;
+        --muted: #94a3b8;
+        --line: #1e293b;
+        --card: #0f172a;
+        --accent: #e2e8f0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--fg);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.55;
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 3rem 1.25rem 4rem;
+      }
+      h1,
+      h2 {
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+      }
+      h1 {
+        font-size: 2.25rem;
+        margin: 0 0 0.75rem;
+      }
+      h2 {
+        font-size: 1.15rem;
+        margin: 2.25rem 0 0.75rem;
+      }
+      p,
+      li {
+        color: var(--muted);
+      }
+      a {
+        color: var(--accent);
+      }
+      .lede {
+        font-size: 1.125rem;
+        max-width: 36rem;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 0.75rem;
+        padding: 1rem 1.1rem;
+        overflow: auto;
+      }
+      code,
+      pre {
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.875rem;
+      }
+      pre {
+        margin: 0;
+        color: var(--fg);
+        white-space: pre-wrap;
+      }
+      ol {
+        padding-left: 1.2rem;
+      }
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p style="color: var(--muted); font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 0.75rem">
+        Grok plugin
+      </p>
+      <h1>CoreOfDiscovery for Grok</h1>
+      <p class="lede">
+        Record a prediction, grade it later against the original request, and see how calibrated you have been.
+        The plugin already points at production. Sign in when Grok opens Connect.
+      </p>
+
+      <h2>1. Sign in</h2>
+      <ol>
+        <li>Install the plugin or add the MCP URL below.</li>
+        <li>Call a tool. Grok should open CoreOfDiscovery (Clerk) — sign in and Allow.</li>
+        <li>
+          If Connect does not start, create a key at
+          <a href="https://coreofdiscovery.vercel.app/settings/api-keys">Settings → API keys</a>
+          (<code>mcp:tools</code>, <code>decisions:write</code>, <code>calibration:read</code>) and set
+          <code>x-api-key</code>.
+        </li>
+      </ol>
+
+      <h2>2. Server</h2>
+      <p>Grok Build reads this from the plugin. On Bot or grok.com Custom, paste it.</p>
+      <div class="card">
+        <pre>https://coreofdiscovery.vercel.app/api/mcp</pre>
+      </div>
+      <p style="margin-top: 0.75rem">OAuth first. Header <code>x-api-key</code> only if Connect never opens.</p>
+
+      <h2>3. Install</h2>
+      <p><strong style="color: var(--fg)">Grok Build</strong></p>
+      <div class="card">
+        <pre>grok plugin install coreofdiscovery --trust</pre>
+      </div>
+      <p>
+        <strong style="color: var(--fg)">Grok Bot</strong> — Settings → Plugins → custom MCP → URL
+        above. Complete Connect if prompted. In chat, type <code>@</code> and attach the connector.
+      </p>
+      <p>
+        <strong style="color: var(--fg)">Grok chat</strong> —
+        <a href="https://grok.com/connectors">grok.com/connectors</a> → New → Custom → same URL.
+      </p>
+
+      <h2>Then</h2>
+      <p>
+        Use <code>/log-claim</code> before a date, probability, or recommendation you cannot look up now.
+        <code>/grade-claim</code> scores the frozen ask. <code>/how-did-i-do</code> reads calibration.
+        If a tool returns unauthorized, use <code>/connect</code>.
+      </p>
+
+      <footer>
+        <p>
+          <a href="https://github.com/SmokedMeats/coreofdiscovery-grok-plugin">Source</a>
+          ·
+          <a href="https://coreofdiscovery.vercel.app">CoreOfDiscovery</a>
+          ·
+          <a href="https://coreofdiscovery.vercel.app/privacy">Privacy</a>
+        </p>
+        <p>This page is static. Books and scores live on CoreOfDiscovery, not here.</p>
+      </footer>
+    </main>
+  </body>
+</html>

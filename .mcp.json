@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "coreofdiscovery": {
+      "type": "http",
+      "url": "https://coreofdiscovery.vercel.app/api/mcp"
+    }
+  }
+}
