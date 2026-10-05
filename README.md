@@ -1,6 +1,6 @@
 # CoreOfDiscovery Grok plugin
 
-Installable Grok plugin for [CoreOfDiscovery](https://github.com/SmokedMeats/CoreofDiscovery). Works with Grok Build, Grok Bot, and [Grok chat connectors](https://grok.com/connectors).
+Installable Grok plugin for [CoreOfDiscovery](https://coreofdiscovery.vercel.app). Works with Grok Build, Grok Bot, and [Grok chat connectors](https://grok.com/connectors).
 
 This repository is the plugin mouth: skills, commands, MCP client config, and a static install page. It has no database. Claims, grades, and lessons stay on the CoreOfDiscovery MCP server.
 

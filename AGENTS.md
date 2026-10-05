@@ -2,7 +2,7 @@
 
 Default branch **main**.
 
-This repository is the Grok plugin client only. Decision math and books stay on CoreOfDiscovery MCP (`lib/mcp/bot-claim.pure.ts`).
+This repository is the Grok plugin client only. Decision math and books stay on CoreOfDiscovery MCP.
 
 MCP URL is already `https://coreofdiscovery.vercel.app/api/mcp`. Prefer Clerk OAuth (Connect). If tools return unauthorized, follow connect. Do not ask the user to find the server URL.
 
